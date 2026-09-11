@@ -1,0 +1,9 @@
+node_modules/
+.expo/
+dist/
+android/
+ios/
+.gradle/
+*.log
+.DS_Store
+*.local
