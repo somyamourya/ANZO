@@ -33,6 +33,13 @@ jobs:
       - name: 📱 Generate Native Android Project (Expo Prebuild)
         run: npx expo prebuild --platform android --clean --no-install
 
+      - name: 🔧 Patch Kotlin 1.9.25 for Compose Compiler
+        run: |
+          echo "android.kotlinVersion=1.9.25" >> android/gradle.properties
+          echo "android.suppressKotlinVersionCompatibilityCheck=1.9.24,1.9.25" >> android/gradle.properties
+          echo "kotlin.suppressKotlinVersionCompatibilityCheck=true" >> android/gradle.properties
+          sed -i 's/kotlinVersion = findProperty.*$/kotlinVersion = "1.9.25"/' android/build.gradle
+
       - name: ⚙️ Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 

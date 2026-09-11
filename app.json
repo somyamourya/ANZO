@@ -34,7 +34,20 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-screen-orientation"
+      "expo-screen-orientation",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.9.25",
+            "extraGradleProperties": {
+              "android.kotlinVersion": "1.9.25",
+              "android.suppressKotlinVersionCompatibilityCheck": "1.9.24,1.9.25",
+              "kotlin.suppressKotlinVersionCompatibilityCheck": "true"
+            }
+          }
+        }
+      ]
     ]
   }
 }
